@@ -7,6 +7,7 @@ import java.util.Random;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.lang.Throwable;
 
 import main.StringCalculator;
 
@@ -91,11 +92,20 @@ class StringCalculatorTests {
 		
 		assertEquals(6, sc.Add("//[*][%]\n1*2%3"));
 	}
+	
 	@Test
 	void ShouldReturnSumWithMultipleDelimitersMoreThanOneChar() {
 		StringCalculator sc = new StringCalculator();
 		
 		assertEquals(6, sc.Add("%//[*]]]]][[[%]\n\n\n//1*****2%3%%"));
+	}
+	
+	@Test
+	void ShouldReturnExceptionIfTwoNegativeNumber() {
+		StringCalculator sc = new StringCalculator();
+		String input = "-1,-2";
+		Throwable exception = assertThrows(ArithmeticException.class, () -> sc.Add(input));
+		assertEquals(exception.getMessage(), sc.Add("-1,-2"));
 	}
 
 }
