@@ -77,5 +77,12 @@ class StringCalculatorTests {
 		
 		assertEquals(2, sc.Add("2,1001"));
 	}
+	
+	@Test
+	void ShouldReturnSumOfALotOfDelimiters() {
+		StringCalculator sc = new StringCalculator();
+		
+		assertEquals(6, sc.Add("//[***]\n1***2***3"));
+	}
 
 }

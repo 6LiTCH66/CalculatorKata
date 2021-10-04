@@ -13,7 +13,9 @@ public class StringCalculator {
 			
 		else if (numbers.contains(",") || numbers.contains("\n")) {
 			int sum = 0;
+			//numbers.replaceAll("[", ",").replaceAll("]", ",").replaceAll("*", ",");
 			String[] string = Arrays.stream(numbers.replace("\n", ",").replaceAll("//", ",").replaceAll(";", ",")
+					.replaceAll("\\[|\\]", ",").replace("*", ",")
 					.split(",")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
 			int[] arr = new int[string.length];
 			
@@ -26,8 +28,6 @@ public class StringCalculator {
 	            
 
 	        }
-			
-			
 			return sum;
 		}
 		
