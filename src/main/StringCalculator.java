@@ -17,11 +17,16 @@ public class StringCalculator {
 					.split(",")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
 			int[] arr = new int[string.length];
 			
-		
 			for (int i = 0; i < string.length; i++) {
 	            arr[i] = Integer.valueOf(string[i]);
-	            sum += arr[i];
+	            if(arr[i] > 1000) {}
+	            else {
+	            	sum += arr[i];
+	            }
+	            
+
 	        }
+			
 			
 			return sum;
 		}

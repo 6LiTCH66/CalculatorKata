@@ -45,8 +45,8 @@ class StringCalculatorTests {
 	void ShouldReturnSumForStringWithTwoNumber() {
 		StringCalculator sc = new StringCalculator();
 		Random r = new Random();
-		int num1 = r.nextInt(Integer.MAX_VALUE/2);
-		int num2 = r.nextInt(Integer.MAX_VALUE/2);
+		int num1 = r.nextInt(Integer.MAX_VALUE/20000001);
+		int num2 = r.nextInt(Integer.MAX_VALUE/20000001);
 		
 		assertEquals(num1 + num2, sc.Add(num1 + "," + num2));
 	}
@@ -55,8 +55,8 @@ class StringCalculatorTests {
 	void ShouldReturnSumForStringWithTwoNumberWithSpace() {
 		StringCalculator sc = new StringCalculator();
 		Random r = new Random();
-		int num1 = r.nextInt(Integer.MAX_VALUE/2);
-		int num2 = r.nextInt(Integer.MAX_VALUE/2);
+		int num1 = r.nextInt(Integer.MAX_VALUE/20000001);
+		int num2 = r.nextInt(Integer.MAX_VALUE/20000001);
 		
 		assertEquals(num1 + num2, sc.Add(num1 + "\n" + num2));
 	}
@@ -65,10 +65,17 @@ class StringCalculatorTests {
 	void ShouldReturnSumForStringWithTwoNumberWithSemiColon() {
 		StringCalculator sc = new StringCalculator();
 		Random r = new Random();
-		int num1 = r.nextInt(Integer.MAX_VALUE/2);
-		int num2 = r.nextInt(Integer.MAX_VALUE/2);
+		int num1 = r.nextInt(Integer.MAX_VALUE/20000001);
+		int num2 = r.nextInt(Integer.MAX_VALUE/20000001);
 		
 		assertEquals(3, sc.Add("//;\n1;2"));
+	}
+	
+	@Test
+	void ShouldReturnSumIfNumbersLessThanThousand() {
+		StringCalculator sc = new StringCalculator();
+		
+		assertEquals(2, sc.Add("2,1001"));
 	}
 
 }
