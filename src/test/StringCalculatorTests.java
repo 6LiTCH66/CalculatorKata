@@ -91,5 +91,11 @@ class StringCalculatorTests {
 		
 		assertEquals(6, sc.Add("//[*][%]\n1*2%3"));
 	}
+	@Test
+	void ShouldReturnSumWithMultipleDelimitersMoreThanOneChar() {
+		StringCalculator sc = new StringCalculator();
+		
+		assertEquals(6, sc.Add("%//[*]]]]][[[%]\n\n\n//1*****2%3%%"));
+	}
 
 }
