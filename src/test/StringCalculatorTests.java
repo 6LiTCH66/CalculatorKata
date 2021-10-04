@@ -50,5 +50,15 @@ class StringCalculatorTests {
 		
 		assertEquals(num1 + num2, sc.Add(num1 + "," + num2));
 	}
+	
+	@Test
+	void ShouldReturnSumForStringWithTwoNumberWithSpace() {
+		StringCalculator sc = new StringCalculator();
+		Random r = new Random();
+		int num1 = r.nextInt(Integer.MAX_VALUE/2);
+		int num2 = r.nextInt(Integer.MAX_VALUE/2);
+		
+		assertEquals(num1 + num2, sc.Add(num1 + "\n" + num2));
+	}
 
 }
