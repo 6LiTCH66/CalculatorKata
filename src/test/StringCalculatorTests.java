@@ -33,7 +33,7 @@ class StringCalculatorTests {
 	}
 	
 	@Test
-	void ShouldRetur3ForString_21() {
+	void ShouldRetur3ForString1_2() {
 		StringCalculator sc = new StringCalculator();
 		
 		assertEquals(3, sc.Add("1,2"));
