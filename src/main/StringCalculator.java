@@ -2,6 +2,27 @@ package main;
 
 public class StringCalculator {
 	public int Add(String numbers) {
+		if(numbers.equals("")) {
+			return 0;
+		}
+		else if(!numbers.contains(",")) {
+			return Integer.parseInt(numbers);
+		}
+		else if (numbers.contains(",")) {
+			
+			int sum = 0;
+			String[] string = numbers.split(",");
+			int[] arr = new int[string.length];
+		
+			for (int i = 0; i < string.length; i++) {
+	            arr[i] = Integer.valueOf(string[i]);
+	            sum += arr[i];
+	        }
+			
+			return sum;
+		}
+		
 		return 0;
+
 	}
 }

@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Random;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,10 +35,20 @@ class StringCalculatorTests {
 	}
 	
 	@Test
-	void ShouldRetur3ForString1_2() {
+	void ShouldReturn3ForString1_2() {
 		StringCalculator sc = new StringCalculator();
 		
 		assertEquals(3, sc.Add("1,2"));
+	}
+	
+	@Test
+	void ShouldReturnSumForStringWithTwoNumber() {
+		StringCalculator sc = new StringCalculator();
+		Random r = new Random();
+		int num1 = r.nextInt(Integer.MAX_VALUE/2);
+		int num2 = r.nextInt(Integer.MAX_VALUE/2);
+		
+		assertEquals(num1 + num2, sc.Add(num1 + "," + num2));
 	}
 
 }
