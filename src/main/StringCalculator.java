@@ -15,7 +15,7 @@ public class StringCalculator {
 			int sum = 0;
 			//numbers.replaceAll("[", ",").replaceAll("]", ",").replaceAll("*", ",");
 			String[] string = Arrays.stream(numbers.replace("\n", ",").replaceAll("//", ",").replaceAll(";", ",")
-					.replaceAll("\\[|\\]", ",").replace("*", ",")
+					.replaceAll("\\[|\\]", ",").replace("*", ",").replace("%", ",")
 					.split(",")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
 			int[] arr = new int[string.length];
 			

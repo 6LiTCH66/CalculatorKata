@@ -79,10 +79,17 @@ class StringCalculatorTests {
 	}
 	
 	@Test
-	void ShouldReturnSumOfALotOfDelimiters() {
+	void ShouldReturnSumWithBracketsInstring() {
 		StringCalculator sc = new StringCalculator();
 		
 		assertEquals(6, sc.Add("//[***]\n1***2***3"));
+	}
+	
+	@Test
+	void ShouldReturnSumWithALotOfDelimiters() {
+		StringCalculator sc = new StringCalculator();
+		
+		assertEquals(6, sc.Add("//[*][%]\n1*2%3"));
 	}
 
 }
