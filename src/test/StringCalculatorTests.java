@@ -104,7 +104,10 @@ class StringCalculatorTests {
 	void ShouldReturnExceptionIfTwoNegativeNumber() {
 		StringCalculator sc = new StringCalculator();
 		String input = "-1,-2";
-		assertEquals(0, sc.Add("-1,-2"));
+		
+		Throwable exception = assertThrows(ArithmeticException.class, () -> sc.Add("negatives not allowed: " + input));
+		
+		assertEquals("negatives not allowed: -1, -2", exception.getMessage());
 	}
 
 }

@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 import java.util.Arrays;
 import java.lang.Throwable;
-import java.lang.IllegalArgumentException;
 
 public class StringCalculator {
-	public int Add(String numbers) throws IllegalArgumentException {
+	public int Add(String numbers) {
 		if(numbers.equals("")) {
 			return 0;
 		}
@@ -20,15 +19,15 @@ public class StringCalculator {
 			int sum = 0;
 			
 			String[] string = Arrays.stream(numbers.replace("\n", ",").replaceAll("//", ",").replaceAll(";", ",")
-					.replaceAll("\\[|\\]", ",").replace("*", ",").replace("%", ",").replaceAll("[a-zA-Z]", ",")
+					.replaceAll("\\[|\\]", ",").replace("*", ",").replace("%", ",").replaceAll("[a-zA-Z]", ",").replaceAll(":", ",").replace(" ", ",")
 					.split(",")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
 			
 			int[] arr = new int[string.length];
 			
 			
 			if(Arrays.toString(string).contains("-")) {
-				sum = 0;
-				
+				String negativeNumbers = Arrays.toString(string).replaceAll("\\[|\\]", "");
+				throw new ArithmeticException("negatives not allowed: " + negativeNumbers);
 			}
 			
 			else {
